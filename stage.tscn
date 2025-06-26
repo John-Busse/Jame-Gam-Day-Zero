@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3062gjwspv8x"]
+[gd_scene load_steps=11 format=3 uid="uid://d3062gjwspv8x"]
 
 [ext_resource type="PackedScene" uid="uid://3bs7tpe1jall" path="res://player.tscn" id="1_6eo5e"]
 [ext_resource type="Script" uid="uid://dicd2ywn1j23y" path="res://stage.gd" id="1_aees8"]
 [ext_resource type="PackedScene" uid="uid://bjtcurjq0fqe6" path="res://enemy.tscn" id="3_rnkuw"]
 [ext_resource type="PackedScene" uid="uid://bq6eium8nsgu6" path="res://reflector.tscn" id="4_gx6sy"]
+[ext_resource type="PackedScene" uid="uid://cs0000711r1u1" path="res://UI.tscn" id="5_16g40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aees8"]
 size = Vector2(640, 16)
@@ -103,5 +104,11 @@ rotation = -0.785398
 visible = false
 position = Vector2(624, 688)
 texture = SubResource("CanvasTexture_gx6sy")
+
+[node name="UI" parent="." instance=ExtResource("5_16g40")]
+offset_right = 640.0
+offset_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="end_game_signal" from="Player" to="." method="end_game"]

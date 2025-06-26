@@ -10,9 +10,7 @@ func _process(delta: float) -> void:
 
 
 func end_game():
-	if $Enemies.get_child_count() != 0:
-		#stil enemies alive!
-		print("You lose!")
+	if $Enemies.get_child_count() == 0:
+		$UI.end_game(true)
 	else:
-		#all enemies defeated!
-		print("You Win!")
+		$UI.end_game(false)
