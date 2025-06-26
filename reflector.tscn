@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq6eium8nsgu6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmsqi"]
+radius = 1.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_e20rs"]
+
+[node name="Reflector" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cmsqi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.143706, 0.378591, 1, 1)
+scale = Vector2(3, 16)
+texture = SubResource("CanvasTexture_e20rs")

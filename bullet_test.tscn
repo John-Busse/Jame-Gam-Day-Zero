@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://br418ra6ap44m"]
+
+[ext_resource type="Script" uid="uid://ciavmgsper4fd" path="res://bullet_test.gd" id="1_0k7sj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsq66"]
+size = Vector2(10, 10)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0k7sj"]
+
+[node name="Bullet" type="Area2D"]
+top_level = true
+collision_layer = 2
+collision_mask = 24
+script = ExtResource("1_0k7sj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fsq66")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.780694, 4.54836e-06, 4.81307e-07, 1)
+show_behind_parent = true
+scale = Vector2(10, 10)
+texture = SubResource("CanvasTexture_0k7sj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

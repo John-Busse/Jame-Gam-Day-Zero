@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://3bs7tpe1jall"]
+
+[ext_resource type="Script" uid="uid://brge76pwxuqgn" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://br418ra6ap44m" path="res://bullet_test.tscn" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(16, 32)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i3pqv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4flbx"]
+specular_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 16
+script = ExtResource("1_4flbx")
+bullet_scene = ExtResource("2_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+scale = Vector2(15, 31)
+texture = SubResource("CanvasTexture_i3pqv")
+
+[node name="GunSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(8, -8)
+scale = Vector2(5, 5)
+texture = SubResource("CanvasTexture_4flbx")
